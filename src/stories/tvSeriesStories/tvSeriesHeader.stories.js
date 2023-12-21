@@ -3,7 +3,7 @@ import TvHeader from "../../components/tvSeriesComponents/headerTvSeries";
 import sampleDataTvSeries from "./sampleDataTvSeries";
 
 export default {
-  title: "Movie Details Page/MovieHeader",
+  title: "TV series Details Page/TVseriesHeader",
   component: TvHeader,
 };
 
