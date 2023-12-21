@@ -4,7 +4,7 @@ import sampleDataTvSeries from "./sampleDataTvSeries";
 
 export default {
   title: "Tv Series Details Page/TvSeriesDetails",
-  component: MovieDetails,
+  component: TvSeriesDetails
 };
 
 export const Basic = () => <TvSeriesDetails tvseries={sampleDataTvSeries} />;

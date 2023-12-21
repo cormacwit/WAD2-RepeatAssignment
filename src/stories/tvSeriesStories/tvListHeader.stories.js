@@ -1,5 +1,6 @@
 import React from "react";
-import headerTvSeriesList from "../components/headerMovieList";
+import headerTvSeriesList from "../components/tvSeriesComponents/headerTvSeries";
+
 
 export default {
   title: "Home Page/Header",

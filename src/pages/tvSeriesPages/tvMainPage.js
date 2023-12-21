@@ -21,7 +21,7 @@ const TVHomePage = (props) => {
   // Redundant, but necessary to avoid app crashing.
   const favourites = tvseries.filter(m => m.favourite)
   localStorage.setItem('favourites', JSON.stringify(favourites))
-  const addToFavourites = (movieId) => true 
+  const addToFavourites = (Id) => true 
 
   return (
     <TemplatePage
