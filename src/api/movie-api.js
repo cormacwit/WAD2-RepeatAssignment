@@ -59,3 +59,13 @@ export const getTVSeries = () => {
   }
   ).then(res => res.json());
 };
+
+export const getPopularMovies = () => {
+    return fetch(
+        '/api/movies/tmdb/Popular', {
+        headers: {
+            'Authorization': window.localStorage.getItem('token')
+        }
+    }
+    ).then(res => res.json());
+  };

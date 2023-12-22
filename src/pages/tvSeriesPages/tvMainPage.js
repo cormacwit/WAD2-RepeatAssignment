@@ -1,5 +1,5 @@
 import React from "react";
-import { getTVseries } from "../api/movie-api";
+import { getTVseries } from "../../api/tmdb-api";
 import TemplatePage from "../../components/tvSeriesComponents/templateTvSeriesPage";
 import { useQuery } from 'react-query';
 import Spinner from '../../components/spinner';
