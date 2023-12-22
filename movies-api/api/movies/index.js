@@ -1,7 +1,6 @@
 import movieModel from './movieModel';
 import asyncHandler from 'express-async-handler';
 import express from 'express';
-import asyncHandler from 'express-async-handler';
 import {getUpcomingMovies} from '../tmdb-api';
 import { getTopRatedMovies } from '../tmdb-api';
 import { getTVSeries } from '../tmdb-api';
