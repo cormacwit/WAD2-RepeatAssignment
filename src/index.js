@@ -12,6 +12,7 @@ import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader';
 import UpcomingPage from './pages/upcomingMoviesPage';
 import AddMovieReviewPage from './pages/addMovieReviewPage';
+import './db';
 
 ////New additions// TV stuff
 import PopularMoviePage from './pages/popularMoviePage';
