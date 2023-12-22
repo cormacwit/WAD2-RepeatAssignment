@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -11,12 +11,14 @@ import { useNavigate } from "react-router-dom";
 import { styled } from '@mui/material/styles';
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { AuthContext } from "../../contexts/authContext";
 
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
-const SiteHeader = ({ history }) => {
+const siteHeader = ({ history }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  const context = useContext(AuthContext);
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -29,8 +31,15 @@ const SiteHeader = ({ history }) => {
     { label: "Upcoming Movies", path: "/movies/upcoming" },
     { label: "Popular Movies", path: "/movies/popular" },
     { label: "Top rated Movies", path: "/movies/toprated" },
-    { label: "Tv Series", path: "/tvseries/tvMainPage" },
+    { label: "Tv Series", path: "/tvseries" },
     { label: "Favourite", path: "/tvseries/favourites" },
+    { label: "Tv Reviews", path: "/tvseries/reviews" },
+    { label: "Tv Details", path: "/tvseries/details" },
+    { label: "Login", path: "/loginpage" },
+    { label: "Signup", path: "/signup" },
+    
+    
+
   ];
 
   const handleMenuSelect = (pageURL) => {
@@ -51,6 +60,14 @@ const SiteHeader = ({ history }) => {
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             All you ever wanted to know about Movies!
           </Typography>
+          {context.isAuthenticated ? (
+                        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+                        Welcome, {context.userName}
+                        </Typography>
+
+                    ):(<Typography variant="h6" sx={{ flexGrow: 1 }}>
+                        You are not logged in yet!
+                    </Typography>)}
             {isMobile ? (
               <>
                 <IconButton
@@ -107,4 +124,4 @@ const SiteHeader = ({ history }) => {
   );
 };
 
-export default SiteHeader;
+export default siteHeader;
