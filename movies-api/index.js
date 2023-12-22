@@ -7,7 +7,7 @@ import session from 'express-session';
 // replace existing import with passport strategy​
 import passport from './authenticate';
 import './db';
-import './initialise-dev';
+import { loadUsers, loadMovies, loadGenres } from './seedData';
 
 
 dotenv.config();
