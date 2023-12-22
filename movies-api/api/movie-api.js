@@ -21,15 +21,41 @@ export const signup = async (username, password) => {
 };
 
 export const getMovies = () => {
-    return fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=7e287e985b66b4afc080f3d9806d9d5b&language=en-US&include_adult=false&include_video=false&page=1`
-    ).then((response) => {
-      if (!response.ok) {
-        throw new Error(response.json().message);
+  return fetch(
+      '/api/movies', {
+      headers: {
+          'Authorization': window.localStorage.getItem('token')
       }
-      return response.json();
-    })
-    .catch((error) => {
-       throw error
-    });
-  };
+  }
+  ).then(res => res.json());
+};
+
+export const getUpcomingMovies = () => {
+  return fetch(
+      '/api/movies/tmdb/upcoming', {
+      headers: {
+          'Authorization': window.localStorage.getItem('token')
+      }
+  }
+  ).then(res => res.json());
+};
+
+export const getTopRatedMovies = () => {
+  return fetch(
+      '/api/movies/tmdb/toprated', {
+      headers: {
+          'Authorization': window.localStorage.getItem('token')
+      }
+  }
+  ).then(res => res.json());
+};
+
+export const getTVSeries = () => {
+  return fetch(
+      '/api/movies/tmdb/tv', {
+          headers: {
+              'Authorization': window.localStorage.getItem('token')
+          }
+  }
+  ).then(res => res.json());
+};
