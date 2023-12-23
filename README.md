@@ -19,9 +19,12 @@ Name: Cormac Farrell
 
 ## Setup requirements.
 
-N/A
++ Install dependencies from the labs.
++ "npm start" on both "movies-api" and "moviesApp".
++ run "mongod" with "movies_db" present.
 
-## TMDB endpoints.
+
+## TMDB endpoints from CA1.
 
 [ List the __additional__ TMDB endpoints used, giving the description and pathname for each one.] 
 / - Homepage
@@ -37,21 +40,11 @@ N/A
 /reviewsTV/form - Users reviews of a selected TV show.
 /tv/favourites - User's favourited TV shows.
 /reviewsTV/:id - Page of for a specific TV Show review
+/login - Allows an already registered user to sign in and view their favourite movies
 
-## App Design.
-
-### Component catalogue.
-storybook non functional
-
-### UI Design.
-![Popular](https://user-images.githubusercontent.com/74902128/208070622-714f0289-2631-4bb9-95dc-cd852ee33a7c.png)
-
-![toprated](https://user-images.githubusercontent.com/74902128/208070644-f2c2d2a9-4357-4b64-a4b2-1a6b61ce039c.png)
-
-//Tv series encountered an error while trying to fetch the images for the series with the API and i could not remedy this.
-![Tv series with error](https://user-images.githubusercontent.com/74902128/208070796-54f6796d-b085-4c71-b54e-dfc19c8c0ff1.png)
-
-![tv favourites](https://user-images.githubusercontent.com/74902128/208070767-1cb75182-592b-4b8b-b4ce-04e6a861a38a.png)
+## Features.
++ Changed all of the main TMDB API Calls (for movies or tv series ect) in the React App to be calling from our own API, tdmb now servies as a secondary API calling from our original API (API located in movies-API)
++  Added a Login and Register page, where users can make new accounts and then log into them, while also being able to log out of them on the Register page.
 
 ### Routing.
 
@@ -73,8 +66,36 @@ storybook non functional
 
 [If relevant, state what aspects of your app are protected/private (i.e. require authentication) and what is public.]
 
-## Independent learning (If relevant).
+If the user is not signed and tries to access favourites they will be prompted to sign in or create an account.
 
-[ Itemize the technologies/techniques you researched independently and adopted in your project, i.e. aspects not covered in the lectures/labs. Mention the source code filenames that illustrate these  (code excerpts are not required) and provide references to the online resources that helped you (articles/blogs).
+## API Design
+Give an overview of your web API design, perhaps similar to the following: 
+​
+|  |  GET | POST | PUT | DELETE
+| -- | -- | -- | -- | -- 
+| /api/movies |Gets a list of movies | N/A | N/A |
+| /api/movies/{movieid} | Get a Movie | N/A | N/A | N/A
+| /api/movies/{movieid}/reviews | Get all reviews for movie | Create a new review for Movie (not working)| N/A | N/A
+| /api/movies/tmdb/upcoming | Get all upcoming movies | N/A | N/A | N/A
+| /api/movies/tmdb/toprated | Get all top rated movies | N/A | N/A | N/A
+| /api/movies/tmdb/popular | Get all popular movies | N/A | N/A | N/A
+| /api/movies/tmdb/tv | Get all TV Series | N/A | N/A | N/A
+| /api/movies/{tv_id}/getTVReviews | Get all reviews for tv series | Create a new review for Movie (Not working) | N/A | N/A
+| /api/users?action=register | N/A | Register a new user into the API | N/A | N/A
+| /api/users | Query the list of users | N/A | N/A | N/A
+
+
+## Security and Authentication
+Give details of authentication/ security implemented on the API(e.g. passport/sessions). Indicate which routes are protected. **REMEMBER: DON'T PUT YOUR OWN USERNAMES/PASSWORDS/AUTH KEYS IN THE README OR ON GITHUB**
+
++ Users are issued a JWT token when they register that is tied to their account
+​
+## Integrating with React App
+​
+Describe how you integrated your React app with the API. Perhaps link to the React App repo and give an example of an API call from React App. For example: 
+
++ My react app can be found as an earlier save on this repo under "TV-Image error but API working"
+
+
 
 
